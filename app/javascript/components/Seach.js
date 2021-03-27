@@ -5,7 +5,26 @@ export class Seach extends Component {
     super(props);
   }
   render() {
-    return <div>Search Component</div>;
+    return (
+      <div>
+        <h1>Crypto Currency Calculator</h1>
+        <form>
+          <div className="form-group">
+            <label>Search for a Currency</label>
+            <br />
+            <input
+              onChange={this.props.handleChange}
+              autoComplete="off"
+              type="text"
+              name="name"
+              placeholder="Ex: Bitcoin, Litecoin, Ethereum..."
+              value={this.props.name}
+              className="field"
+            />
+          </div>
+        </form>
+      </div>
+    );
   }
 }
 

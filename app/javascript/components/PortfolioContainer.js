@@ -13,11 +13,19 @@ export class PortfolioContainer extends Component {
       active_currency: null,
       amount: "",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
   render() {
     return (
       <div>
-        <Search />
+        <Search handleChange={this.handleChange} />
         <Calculate />
       </div>
     );
