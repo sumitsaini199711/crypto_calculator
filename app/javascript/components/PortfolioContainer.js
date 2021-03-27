@@ -8,7 +8,6 @@ export class PortfolioContainer extends Component {
     super(props);
 
     this.state = {
-      name: "",
       portfolio: [],
       search_results: [],
       active_currency: null,
@@ -47,19 +46,19 @@ export class PortfolioContainer extends Component {
       active_currency: activeCurrency[0],
       searchResults: [],
     });
-    debugger;
   }
   render() {
-    return (
-      <div>
-        <Search
-          searchResults={this.state.search_results}
-          handleChange={this.handleChange}
-          handleSelect={this.handleSelect}
-        />
-        <Calculate />
-      </div>
+    const searchOrCalculate = this.state.active_currency ? (
+      <Calculate />
+    ) : (
+      <Search
+        searchResults={this.state.search_results}
+        handleChange={this.handleChange}
+        handleSelect={this.handleSelect}
+      />
     );
+
+    return <div>{searchOrCalculate}</div>;
   }
 }
 
