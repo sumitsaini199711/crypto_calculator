@@ -8,13 +8,17 @@ class CurrenciesController < ApplicationController
     end
 
     def calculate
-        @currency ||= Currency.find(params[:id]);
-        @amount = params[:amount];
+        amount = params[:amount];
         render json: {
-            currency: @currency,
-            current_price: @currency.current_price,
+            currency: currency,
+            current_price: currency.current_price,
             amount: amount,
-            value: @currency.calculate_value(amount)
+            value: currency.calculate_value(amount)
         }
+    end
+
+    private
+    def currency
+        @currency ||= Currency.find(params[:id])
     end
 end
