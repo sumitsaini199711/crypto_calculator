@@ -5,6 +5,18 @@ export class Seach extends Component {
     super(props);
   }
   render() {
+    const searchResults = this.props.searchResults.map((curr) => (
+      <li
+        key={curr.id}
+        className="currency-list-item"
+        data-id={curr.id}
+        onClick={this.props.handleSelect}
+      >
+        <a href="#" className="currency">
+          <span>{curr.name}</span> <span>{curr.currency_symbol}</span>
+        </a>
+      </li>
+    ));
     return (
       <div>
         <h1>Crypto Currency Calculator</h1>
@@ -22,6 +34,8 @@ export class Seach extends Component {
               className="field"
             />
           </div>
+
+          <div className="currency-list">{searchResults}</div>
         </form>
       </div>
     );
