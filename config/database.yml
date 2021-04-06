@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: crypto_calculator_production
-  username: crypto_calculator
-  password: <%= ENV['CRYPTO_CALCULATOR_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] =>
